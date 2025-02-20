@@ -50,6 +50,10 @@ GET https://pokeapi.co/api/v2/pokemon?limit=20&offset=0
 
 ## 🖼️ Exemplo da Interface
 
+<p align="center">
+  <img src="./249shots_so.png" alt="Preview do Projeto" />
+</p>
+
 ## 📌 Observações
 
 Este projeto tem fins acadêmicos e foi desenvolvido para demonstrar o funcionamento do **RecyclerView** com **consumo de API** e **scroll infinito** no Android.
