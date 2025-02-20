@@ -24,12 +24,20 @@ class PokemonAdapter(private val pokemonList: MutableList<Pokemon>) :
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val pokemon = pokemonList[position]
-        holder.nameTextView.text = pokemon.name.capitalize()
+        holder.nameTextView.text = pokemon.name.replaceFirstChar { it.uppercase() }
 
-        // Carregar imagem do Pokémon usando Glide
+        var showingBack = false
         Glide.with(holder.itemView.context)
             .load(pokemon.getImageUrl())
             .into(holder.imageView)
+
+        holder.itemView.setOnClickListener {
+            showingBack = !showingBack
+            val imageUrl = if (showingBack) pokemon.getBackImageUrl() else pokemon.getImageUrl()
+            Glide.with(holder.itemView.context)
+                .load(imageUrl)
+                .into(holder.imageView)
+        }
     }
 
     override fun getItemCount(): Int = pokemonList.size
